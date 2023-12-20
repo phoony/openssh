@@ -139,6 +139,15 @@ impl Session {
         }
     }
 
+    pub(crate) async fn request_port_close(
+        &self,
+        forward_type: crate::ForwardType,
+        listen_socket: crate::Socket<'_>,
+        connect_socket: crate::Socket<'_>,
+    ) -> Result<(), Error> {
+        unimplemented!()
+    }
+
     async fn close_impl(&self) -> Result<(), Error> {
         let exit = self
             .new_cmd(&["-O", "exit"])
